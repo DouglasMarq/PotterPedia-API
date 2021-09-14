@@ -19,6 +19,8 @@
         "prefer-template": "warn",
         "object-curly-spacing": ["warn", "always"],
         "require-jsdoc": "off",
-        "new-cap": "off"
+        "new-cap": "off",
+        "max-len": "off",
+        "no-invalid-this": "off"
     }
 }

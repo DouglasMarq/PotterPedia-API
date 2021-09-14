@@ -1,10 +1,11 @@
-import { injectable } from 'inversify';
+import { inject, injectable } from 'inversify';
 import http, { Server as _Server } from 'https';
 import express, { Request, Response, NextFunction, Application } from 'express';
 import cors from 'cors';
 import compression from 'compression';
 import helmet from 'helmet';
 import Debug from 'debug';
+import Router from '../api/';
 const debug = Debug('api:init');
 
 @injectable()
@@ -12,7 +13,7 @@ export default class Server {
     readonly _: _Server;
     readonly app: Application;
 
-    constructor() {
+    constructor(@inject(Router) router: Router) {
       const app = (this.app = express());
 
       app.enabled('trust proxy');
@@ -23,7 +24,7 @@ export default class Server {
       app.use(cors({ origin: '*', credentials: true }));
 
       app.enabled('trust proxy');
-      //   app.use(router.loadRouters(app));
+      app.use(router.loadRouters(app));
 
       app.use((req: Request, res: Response, next: NextFunction) => {
         return res.status(404).json({ err: 'not found 404' });
