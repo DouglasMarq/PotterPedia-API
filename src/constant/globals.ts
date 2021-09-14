@@ -48,31 +48,27 @@ export default class Globals {
 
       debug(`Initializing House.`);
       this.house.gryffindor = json.map((item) => {
-        if (item.house = 'Gryffindor') {
+        if (item.house === 'Gryffindor') {
           return item;
         }
-        return;
       });
       this.house.gryffindor = this.house.gryffindor.filter(Boolean);
       this.house.hufflepuff = json.map((item) => {
-        if (item.house = 'Hufflepuff') {
+        if (item.house === 'Hufflepuff') {
           return item;
         }
-        return;
       });
       this.house.hufflepuff = this.house.hufflepuff.filter(Boolean);
       this.house.ravenclaw = json.map((item) => {
-        if (item.house = 'Ravenclaw') {
+        if (item.house === 'Ravenclaw') {
           return item;
         }
-        return;
       });
       this.house.ravenclaw = this.house.ravenclaw.filter(Boolean);
       this.house.slytherin = json.map((item) => {
-        if (item.house = 'Slytherin') {
+        if (item.house === 'Slytherin') {
           return item;
         }
-        return;
       });
       this.house.slytherin = this.house.slytherin.filter(Boolean);
       debug(`Initialized.`);

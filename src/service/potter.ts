@@ -18,7 +18,7 @@ export default class PotterService {
   }
 
   async getHouse(house: string) {
-    return this.potterVariables.house[`${house.toLowerCase()}`];
+    return this.potterVariables.house[house.toLowerCase()];
   }
 }
 
